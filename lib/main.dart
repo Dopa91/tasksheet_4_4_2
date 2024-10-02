@@ -32,6 +32,11 @@ class _MainAppState extends State<MainApp> {
           backgroundColor: Colors.lime,
         ),
         bottomNavigationBar: NavigationBar(
+          selectedIndex: currentIndex,
+          onDestinationSelected: (index) {
+            currentIndex = index;
+            setState(() {});
+          },
           indicatorColor: Colors.lime,
           destinations: const [
             NavigationDestination(icon: Icon(Icons.newspaper), label: "News"),
@@ -40,7 +45,7 @@ class _MainAppState extends State<MainApp> {
             NavigationDestination(icon: Icon(Icons.person), label: "Profile"),
           ],
         ),
-        body: const ProfilSite(),
+        body: screens[currentIndex],
       ),
     );
   }
