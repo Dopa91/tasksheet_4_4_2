@@ -1,13 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:tasksheet_4_4_2/likes_site.dart';
+import 'package:tasksheet_4_4_2/news_site.dart';
 import 'package:tasksheet_4_4_2/profil_site.dart';
 
 void main() {
   runApp(const MainApp());
 }
 
-class MainApp extends StatelessWidget {
+class MainApp extends StatefulWidget {
   const MainApp({super.key});
+
+  @override
+  State<MainApp> createState() => _MainAppState();
+}
+
+class _MainAppState extends State<MainApp> {
+  final List<Widget> screens = [
+    const NewsSite(),
+    const LikesSite(),
+    const ProfilSite(),
+  ];
+
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
